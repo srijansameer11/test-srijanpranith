@@ -1,0 +1,16 @@
+trigger:
+ - none
+ 
+pool:
+  name: Default
+  demands:
+  - msbuild
+
+
+stages:
+ - template: templates/Build/Build.yml
+ 
+ - stage: TestSrijanPranith
+   dependsOn: BuildStage
+   condition:  and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+   
