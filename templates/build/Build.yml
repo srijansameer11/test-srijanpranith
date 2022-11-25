@@ -1,0 +1,9 @@
+stages:
+ - stage: BuildStage
+   displayName: Build
+   jobs:
+   - job: BuildJob
+
+     steps:
+     - task: MSBuild@1
+       displayName: 'Build solution **/*.sln'
